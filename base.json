@@ -1,0 +1,12 @@
+{
+  "name": "Base Token",
+  "symbol": "TOKEN",
+  "description": "This is a base token description",
+  "image": "https://cdn-icons-png.freepik.com/512/6681/6681925.png",
+  "attributes": [
+    {
+      "trait_type": "Strength",
+      "value": "10"
+    }
+  ]
+}
