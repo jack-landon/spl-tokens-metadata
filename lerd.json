@@ -1,0 +1,12 @@
+{
+  "name": "Lerdman",
+  "symbol": "LERD",
+  "description": "This is a base token description",
+  "image": "https://img.freepik.com/free-vector/cute-alien-wearing-hoodie-jacket-cartoon-vector-icon-illustration-science-technology-isolated-flat_138676-13026.jpg?t=st=1743058858~exp=1743062458~hmac=e7e987b39c87c9c9048ea0fed272806b801a35df46ce5fa742c1fd8039e539b6&w=1380",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
