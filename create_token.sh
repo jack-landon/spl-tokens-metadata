@@ -5,40 +5,98 @@ token_name=""
 token_symbol=""
 token_image=""
 token_program_id=""
-
+rpc_url=""
 recipient=""
 github_username=""
 
-is_token_2022=true
-token_amount=1000000
-
+# Parse command-line arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --token_name)
+      token_name="$2"
+      shift 2
+      ;;
+    --token_symbol)
+      token_symbol="$2"
+      shift 2
+      ;;
+    --token_image)
+      token_image="$2"
+      shift 2
+      ;;
+    --rpc_url)
+      rpc_url="$2"
+      shift 2
+      ;;
+    --recipient)
+      recipient="$2"
+      shift 2
+      ;;
+    --github_username)
+      github_username="$2"
+      shift 2
+      ;;
+    --token_amount)
+      token_amount=$2
+      shift 2
+      ;;
+    *)
+      # Skip unknown option
+      shift
+      ;;
+  esac
+done
 
 # Read configuration from config.json
 CONFIG_FILE="./config.json"
 if [ -f "$CONFIG_FILE" ]; then
     echo "Reading configuration from $CONFIG_FILE..."
     if command -v jq &> /dev/null; then
-        recipient=$(jq -r '.recipient // empty' "$CONFIG_FILE")
-        github_username=$(jq -r '.github_username // empty' "$CONFIG_FILE")
-        config_token_amount=$(jq -r '.default_token_amount // empty' "$CONFIG_FILE")
-        config_is_token_2022=$(jq -r '.default_is_token_2022 // empty' "$CONFIG_FILE")
+        config_recipient=$(jq -r '.recipient // empty' "$CONFIG_FILE")
+        config_github_username=$(jq -r '.github_username // empty' "$CONFIG_FILE")
+        config_token_amount=$(jq -r '.token_amount // empty' "$CONFIG_FILE")
+        config_is_token_2022=$(jq -r '.is_token_2022 // empty' "$CONFIG_FILE")
+        config_is_devnet=$(jq -r '.is_devnet // empty' "$CONFIG_FILE")
         
         # Only use config values if they exist
-        [ -n "$recipient" ] || echo "Warning: No recipient found in config, using default"
-        [ -n "$github_username" ] || echo "Warning: No GitHub username found in config, using default"
+        if [ -z "$recipient" ]; then
+            recipient=$(echo "$config_recipient" | tr -d '"')
+        else
+            echo "Error: No defined recipient."
+            exit 1
+        fi
+
+        if [ -z "$github_username" ]; then
+            github_username=$(echo "$config_github_username" | tr -d '"')
+        else
+            echo "Error: No defined github_username."
+            exit 1
+        fi
         
-        # Use config token amount if available
-        if [ -n "$config_token_amount" ]; then
-            token_amount=$config_token_amount
+        if [ -z "$token_amount" ]; then
+            # Use config token amount if available
+            if [ -n "$config_token_amount" ]; then
+                token_amount=$config_token_amount
+            else
+                echo "Warning: No found token_amount, so minting default amount."
+                token_amount=1000000
+            fi
         fi
 
         # Use config token type if available
         if [[ "$config_is_token_2022" = true ]]; then
-            is_token_2022=true
             token_program_id="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
         else
-            is_token_2022=false
             token_program_id="TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        fi
+
+        # Use config token type if available
+        if [ -z "$rpc_url" ]; then
+            if [[ "$config_is_devnet" = true ]]; then
+                rpc_url="https://api.devnet.solana.com"
+            else
+                rpc_url="https://api.mainnet-beta.solana.com"
+            fi
         fi
     else
         echo "Warning: jq not installed. Cannot parse config.json. Using default values."
@@ -54,14 +112,7 @@ if [ -z "$recipient" ] || [ -z "$github_username" ]; then
     exit 1
 fi
 
-echo "Recipient: $recipient"
-echo "GitHub Username: $github_username"
-echo "Token Amount: $token_amount"
-echo "Is Token 2022: $is_token_2022"
-
-exit 1
-
-if [ "$token_name" == "" ] || [ "$token_symbol" == "" ]; then
+if [ -z "$token_name" ] || [ -z "$token_symbol" ]; then
     # Randomly select a name and symbol from the JSON file
     echo "Randomizing token name and symbol..."
     # Path to your JSON file
@@ -86,11 +137,16 @@ if [ "$token_name" == "" ] || [ "$token_symbol" == "" ]; then
     RANDOM_INDEX=$(( RANDOM % TOTAL_ITEMS ))
 
     # Extract the name and symbol at the random index
-    token_name=$(jq -r ".[$RANDOM_INDEX].name" "$JSON_FILE")
-    token_symbol=$(jq -r ".[$RANDOM_INDEX].symbol" "$JSON_FILE")
+    if [ -z "$token_name" ]; then
+        token_name=$(jq -r ".[$RANDOM_INDEX].name" "$JSON_FILE")
+    fi
+
+    if [ -z "$token_symbol" ]; then
+        token_symbol=$(jq -r ".[$RANDOM_INDEX].symbol" "$JSON_FILE")
+    fi
 fi
 
-if [ "$token_image" == "" ]; then
+if [ -z "$token_image" ]; then
     # Get a random image from images.json
     IMAGES_FILE="./content/images.json"
     if [ ! -f "$IMAGES_FILE" ]; then
@@ -106,16 +162,19 @@ if [ "$token_image" == "" ]; then
             # Select random image
             IMAGE_INDEX=$(( RANDOM % TOTAL_IMAGES ))
             token_image=$(jq -r ".[$IMAGE_INDEX]" "$IMAGES_FILE")
-            echo "Selected Image: $token_image"
         fi
     fi
 fi
 
 # Output the selected token
-echo "Selected Token:"
-echo "Name: $token_name"
-echo "Symbol: $token_symbol"
-echo "Image: $token_image"
+echo "Token Name: $token_name"
+echo "Token Symbol: $token_symbol"
+echo "Token Image: $token_image"
+echo "Token Program ID: $token_program_id"
+echo "RPC URL: $rpc_url"
+echo "Recipient: $recipient"
+echo "GitHub Username: $github_username"
+echo "Token Amount: $token_amount"
 
 # Make the json file
 filename_safe_name=$(echo "$token_name" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
@@ -136,18 +195,23 @@ EOF
 
 echo "Created token metadata JSON file"
 
-echo "Adding changes to Git..."
-git add .
+if ! git add .; then
+  echo "Error: Failed to add changes to Git"
+  exit 1
+fi
 
-echo "Committing changes..."
-git commit -m "Added token $token_name"
+if ! git commit -m "Added token $token_name"; then
+  echo "Error: Failed to commit changes"
+  exit 1
+fi
 
 echo "Pushing changes to remote repository..."
-git push
+if ! git push; then
+  echo "Error: Failed to push to GitHub. The metadata won't be accessible. Aborting token creation."
+  exit 1
+fi
 
 metadata="https://raw.githubusercontent.com/$github_username/spl-tokens-metadata/refs/heads/main/tokens/$filename_safe_name.json"
-
-echo "Metadata URL: $metadata"
 
 # File to store grind output
 output_file="grind_output.txt"
@@ -194,7 +258,7 @@ echo "Token ID extracted: $token_id"
 echo "Token Program ID: $token_program_id"
 
 # Create the token with metadata enabled
-spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json"
+spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json" --url $rpc_url
 
 echo "Token created at address: $token_id"
 

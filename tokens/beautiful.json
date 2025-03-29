@@ -1,0 +1,12 @@
+{
+  "name": "Beautiful",
+  "symbol": "BEAUT",
+  "description": "The Beautiful token.",
+  "image": "https://img.freepik.com/free-vector/cute-monster-kid-cartoon-vector-icon-illustration-monster-holiday-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3995.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
