@@ -1,0 +1,12 @@
+{
+  "name": "Kamino ai16z-SOL (Raydium)",
+  "symbol": "kAI16Z-SOL",
+  "description": "The Kamino ai16z-SOL (Raydium) token.",
+  "image": "https://api.kamino.finance/ktokens/CZcPXHCH7etGCbrUi6ZdRsQqNECMPLNVASEYjdzmhQTj/metadata/image.svg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
