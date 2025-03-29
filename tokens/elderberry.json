@@ -1,0 +1,12 @@
+{
+  "name": "Elderberry",
+  "symbol": "ELDER",
+  "description": "The Elderberry token.",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-squirrel-cartoon-illustration_23-2151338703.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
