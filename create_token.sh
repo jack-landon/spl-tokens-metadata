@@ -278,4 +278,6 @@ spl-token transfer "$token_id" $token_amount $recipient --fund-recipient
 # Clean up the keypair file (optional)
 rm "$filename"
 
-echo "Token creation process completed. Token ID: $token_id"
+echo "Token creation process completed for $token_name ($token_id)"
+echo "$token_amount $token_symbol" minted to $recipient
+echo "Token metadata URL: $metadata"
