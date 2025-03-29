@@ -1,0 +1,12 @@
+{
+  "name": "Making",
+  "symbol": "FENN",
+  "description": "The Making token.",
+  "image": "https://img.freepik.com/free-vector/flat-design-frailejon-plant-illustration_23-2150043617.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}

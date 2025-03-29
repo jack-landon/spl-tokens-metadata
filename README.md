@@ -6,6 +6,12 @@ First, complete the [setup](#setup), and then **generate a new token by simply r
 ./create_token.sh
 ```
 
+## Table of Contents
+
+- [Before You Start](#before-you-start)
+- [Setup](#setup)
+- [Additional Flags](#additional-flags)
+
 ## Before You Start
 
 If you are on Windows, you must have wsl to run this program.
@@ -106,6 +112,12 @@ solana airdrop 2
 
 If this doesn't work, visit the [Solana Devnet Faucet](https://faucet.solana.com/)
 
+### 4. Delete the `tokens` folder
+
+If there is a `tokens` folder, feel free to delete it, or the contents inside it.<br />
+This will eventually be populated with the metadata of tokens you create.<br />
+If it is full, it means it is full of tokens that have been created by someone else.
+
 ## Setup
 
 ### 1. Clone this repo
@@ -122,7 +134,7 @@ cd spl-tokens-metadata
 
 ### 3. Create a repo on Github to house the token metadata
 
-[Click here](https://github.com/new) to create a new repo on Github called `spl-tokens-metadata`, and follow the instructions.
+[Click here](https://github.com/new) to create a new repo on Github called `spl-tokens-metadata`, and follow the instructions.<br />
 This program will push each new token's metadata to this repo.
 
 ### 4. Add your Solana Address and Github Username to config.json
