@@ -1,0 +1,12 @@
+{
+  "name": "Quinoa",
+  "symbol": "QUINOA",
+  "description": "The Quinoa token.",
+  "image": "https://img.freepik.com/free-vector/cute-koala-hanging-burning-tree-cartoon-animal-nature-icon-concept-isolated-flat-cartoon-style_138676-2373.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
