@@ -1,0 +1,12 @@
+{
+  "name": "Lettuce",
+  "symbol": "LETT",
+  "description": "This is a base token description",
+  "image": "https://img.freepik.com/free-vector/cute-koala-floating-with-balloon-cartoon-icon-illustration-animal-nature-icon-concept-isolated-flat-cartoon-style_138676-2349.jpg?ga=GA1.1.1472064307.1743058838&semt=ais_hybrid",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
