@@ -1,0 +1,12 @@
+{
+  "name": "Listener",
+  "symbol": "LISTEN",
+  "description": "This is a base token description",
+  "image": "https://img.freepik.com/free-vector/cute-triceratops-muscular-cartoon-vector-icon-illustration-animal-nature-icon-isolated-flat-vector_138676-14337.jpg?t=st=1743222405~exp=1743226005~hmac=f6c0081f4041798e5e8f69f7785e79efb6f141ea66bcae7e5b2b53e2f8066d31&w=1380",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
