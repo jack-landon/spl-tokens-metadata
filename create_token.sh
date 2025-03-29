@@ -7,12 +7,13 @@ token_image=""
 token_amount=1000000
 recipient="DLVwzCBoJB6NSX3bkhPrLmCh213iiRfVNin2Ma6g3qFh"
 metadata="https://raw.githubusercontent.com/jack-landon/spl-tokens-metadata/refs/heads/main/listen.json"
+github_username="jack-landon"
 
 if [ "$token_name" == "" ] || [ "$token_symbol" == "" ]; then
     # Randomly select a name and symbol from the JSON file
     echo "Randomizing token name and symbol..."
     # Path to your JSON file
-    JSON_FILE="names.json"
+    JSON_FILE="./content/names.json"
 
     # Check if jq is installed (we'll use it to parse JSON)
     if ! command -v jq &> /dev/null; then
@@ -39,7 +40,7 @@ fi
 
 if [ "$token_image" == "" ]; then
     # Get a random image from images.json
-    IMAGES_FILE="images.json"
+    IMAGES_FILE="./content/images.json"
     if [ ! -f "$IMAGES_FILE" ]; then
         echo "Warning: $IMAGES_FILE not found. Using default empty image."
         token_image=""
@@ -91,6 +92,10 @@ git commit -m "Added token $token_name"
 
 echo "Pushing changes to remote repository..."
 git push
+
+metadata="https://raw.githubusercontent.com/$github_username/spl-tokens-metadata/refs/heads/main/tokens/$filename_safe_name.json"
+
+echo "Metadata URL: $metadata"
 
 exit 1
 

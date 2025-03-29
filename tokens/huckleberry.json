@@ -1,0 +1,12 @@
+{
+  "name": "Huckleberry",
+  "symbol": "HUCK",
+  "description": "This is a base token description",
+  "image": "https://img.freepik.com/free-vector/cute-elephant-sitting-waving-hand-cartoon-vector-icon-illustration_138676-2220.jpg?ga=GA1.1.1472064307.1743058838&semt=ais_hybrid",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
