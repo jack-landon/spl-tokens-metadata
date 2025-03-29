@@ -269,7 +269,6 @@ spl-token initialize-metadata "$token_id" "$token_name" "$token_symbol" "$metada
 echo "Creating token account..."
 spl-token create-account "$token_id"
 
-echo "Minting $token_amount tokens..."
 spl-token mint "$token_id" $token_amount
 
 echo "Transferring $token_amount tokens to $recipient..."
@@ -278,6 +277,14 @@ spl-token transfer "$token_id" $token_amount $recipient --fund-recipient
 # Clean up the keypair file (optional)
 rm "$filename"
 
-echo "Token creation process completed for $token_name ($token_id)"
-echo "$token_amount $token_symbol" minted to $recipient
-echo "Token metadata URL: $metadata"
+# Add colorful emphasis to final output messages
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+YELLOW='\033[1;33m'
+BOLD='\033[1m'
+RESET='\033[0m'
+
+echo -e "\n${GREEN}${BOLD}=== TOKEN CREATION COMPLETED SUCCESSFULLY ===${RESET}"
+echo -e "${YELLOW}${BOLD}Token created:${RESET} $token_name ($token_id)"
+echo -e "${BLUE}${BOLD}Minted:${RESET} $token_amount $token_symbol to $recipient"
+echo -e "${YELLOW}${BOLD}Metadata URL:${RESET} $metadata\n"

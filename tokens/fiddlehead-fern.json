@@ -1,0 +1,12 @@
+{
+  "name": "Fiddlehead Fern",
+  "symbol": "FIDDL",
+  "description": "The Fiddlehead Fern token.",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-pizza-cartoon-illustration_52683-129531.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
