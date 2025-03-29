@@ -1,0 +1,12 @@
+{
+  "name": "ai16z",
+  "symbol": "AI16Z",
+  "description": "The ai16z token.",
+  "image": "https://s2.tokeninsight.com/static/news/cover/img/sd97v6a9.jpeg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
