@@ -8,6 +8,8 @@ token_amount=1000000
 recipient="DLVwzCBoJB6NSX3bkhPrLmCh213iiRfVNin2Ma6g3qFh"
 metadata="https://raw.githubusercontent.com/jack-landon/spl-tokens-metadata/refs/heads/main/listen.json"
 github_username="jack-landon"
+is_token_2022=true
+token_program_id="TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA" # Initialize with Original Token Program ID
 
 if [ "$token_name" == "" ] || [ "$token_symbol" == "" ]; then
     # Randomly select a name and symbol from the JSON file
@@ -71,7 +73,7 @@ cat > tokens/$filename_safe_name.json << EOF
 {
   "name": "$token_name",
   "symbol": "$token_symbol",
-  "description": "This is a base token description",
+  "description": "The $token_name token.",
   "image": "$token_image",
   "attributes": [
     {
@@ -96,8 +98,6 @@ git push
 metadata="https://raw.githubusercontent.com/$github_username/spl-tokens-metadata/refs/heads/main/tokens/$filename_safe_name.json"
 
 echo "Metadata URL: $metadata"
-
-exit 1
 
 # File to store grind output
 output_file="grind_output.txt"
@@ -141,8 +141,15 @@ rm "$output_file"
 
 echo "Token ID extracted: $token_id"
 
+if [ "$is_token_2022" = true ]; then
+    # Randomly select a name and symbol from the JSON file
+    token_program_id="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+fi
+
+echo "Token Program ID: $token_program_id"
+
 # Create the token with metadata enabled
-spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb --enable-metadata "$token_id.json"
+spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json"
 
 echo "Token created at address: $token_id"
 
