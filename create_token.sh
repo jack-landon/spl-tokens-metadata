@@ -265,13 +265,10 @@ echo "Token created at address: $token_id"
 # Initialize metadata
 spl-token initialize-metadata "$token_id" "$token_name" "$token_symbol" "$metadata"
 
-# Create an account for the token
-echo "Creating token account..."
 spl-token create-account "$token_id"
 
 spl-token mint "$token_id" $token_amount
 
-echo "Transferring $token_amount tokens to $recipient..."
 spl-token transfer "$token_id" $token_amount $recipient --fund-recipient
 
 # Clean up the keypair file (optional)
@@ -285,6 +282,6 @@ BOLD='\033[1m'
 RESET='\033[0m'
 
 echo -e "\n${GREEN}${BOLD}=== TOKEN CREATION COMPLETED SUCCESSFULLY ===${RESET}"
-echo -e "${YELLOW}${BOLD}Token created:${RESET} $token_name ($token_id)"
+echo -e "${YELLOW}${BOLD}Token Created:${RESET} $token_name ($token_id)"
 echo -e "${BLUE}${BOLD}Minted:${RESET} $token_amount $token_symbol to $recipient"
 echo -e "${YELLOW}${BOLD}Metadata URL:${RESET} $metadata\n"

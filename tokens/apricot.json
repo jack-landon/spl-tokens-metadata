@@ -1,0 +1,12 @@
+{
+  "name": "Apricot",
+  "symbol": "APRI",
+  "description": "The Apricot token.",
+  "image": "https://img.freepik.com/free-vector/cute-dino-dracula-vampire-cartoon-vector-icon-illustration-animal-holiday-icon-isolated-flat-vector_138676-11365.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}

@@ -127,11 +127,11 @@ This program will push each new token's metadata to this repo.
 
 ### 4. Add your Solana Address and Github Username to config.json
 
-```json
+```js
 {
   "recipient": "your address goes here",
   "github_username": "your github username goes here",
-  ...
+  // Other propterties..
 }
 ```
 
