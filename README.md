@@ -182,3 +182,14 @@ For example:
 ```bash
 ./create_token.sh --token_name Beautiful --token_symbol BEAUT --token_amount 5000000000
 ```
+
+Note: If you want to use multi-word values, surround them in double quotes ("").<br />
+For example:
+
+```bash
+# ❌ Without Quotes... Outputs 'Three'
+./create_token.sh --token_name Three Word Token
+
+# ✅ With Quotes: Outputs 'Three Word Token'
+./create_token.sh --token_name "Three Word Token"
+```

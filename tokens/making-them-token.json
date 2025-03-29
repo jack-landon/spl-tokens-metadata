@@ -1,0 +1,12 @@
+{
+  "name": "Making Them Token",
+  "symbol": "VOAV",
+  "description": "The Making Them Token token.",
+  "image": "https://img.freepik.com/free-vector/food-cartoon-illustration_23-2150780002.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
