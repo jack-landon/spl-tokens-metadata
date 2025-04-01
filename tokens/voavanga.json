@@ -1,0 +1,12 @@
+{
+  "name": "Voavanga",
+  "symbol": "VOAV",
+  "description": "The Voavanga token.",
+  "image": "https://img.freepik.com/free-vector/cute-koala-thinking-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium_138676-7893.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}

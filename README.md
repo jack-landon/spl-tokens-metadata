@@ -176,6 +176,7 @@ If you don't want to use randomized values, or would like to overwrite the defau
 - --recipient
 - --github_username
 - --token_amount
+- --decimals
 
 Use any of these flags, followed by their corresponding value to overwrite the defaults.
 
