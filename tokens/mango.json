@@ -1,0 +1,12 @@
+{
+  "name": "Mango",
+  "symbol": "MANGO",
+  "description": "The Mango token.",
+  "image": "https://img.freepik.com/free-vector/cute-elephant-cool-wearing-glasses-cartoon-vector-icon-illustration-animal-nature-icon-isolated_138676-13787.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
