@@ -1,0 +1,12 @@
+{
+  "name": "Mamey Sapote",
+  "symbol": "MAMEY",
+  "description": "The Mamey Sapote token.",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-cartoon-evil-rat-illustration_23-2150385798.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}

@@ -132,10 +132,12 @@ git clone https://github.com/jack-landon/spl-tokens-metadata.git
 cd spl-tokens-metadata
 ```
 
-### 3. Create a repo on Github to house the token metadata
+### 3. Create a PUBLIC repo on Github to house the token metadata
 
-[Click here](https://github.com/new) to create a new repo on Github called `spl-tokens-metadata`, and follow the instructions.<br />
+[Click here](https://github.com/new) to create a new _public_ repo on Github called `spl-tokens-metadata`, and follow the instructions.<br />
 This program will push each new token's metadata to this repo.
+
+> This must be public, otherwise the token metadata will not be able to be fetched
 
 ### 4. Add your Solana Address and Github Username to config.json
 
