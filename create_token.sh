@@ -8,6 +8,7 @@ token_program_id=""
 rpc_url=""
 recipient=""
 github_username=""
+decimals=9
 
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
@@ -38,6 +39,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --token_amount)
       token_amount=$2
+      shift 2
+      ;;
+    --decimals)
+      decimals=$2
       shift 2
       ;;
     *)
@@ -258,7 +263,7 @@ echo "Token ID extracted: $token_id"
 echo "Token Program ID: $token_program_id"
 
 # Create the token with metadata enabled
-spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json" --decimals 100 --url $rpc_url
+spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json" --decimals $decimals --url $rpc_url
 
 echo "Token created at address: $token_id"
 

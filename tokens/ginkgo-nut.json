@@ -1,0 +1,12 @@
+{
+  "name": "Ginkgo Nut",
+  "symbol": "GINK",
+  "description": "The Ginkgo Nut token.",
+  "image": "https://img.freepik.com/free-vector/cute-turtle-waving-hand-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-flat_138676-9298.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
