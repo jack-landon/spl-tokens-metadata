@@ -258,7 +258,7 @@ echo "Token ID extracted: $token_id"
 echo "Token Program ID: $token_program_id"
 
 # Create the token with metadata enabled
-spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json" --decimals 50 --url $rpc_url
+spl-token create-token --program-id $token_program_id --enable-metadata "$token_id.json" --decimals 100 --url $rpc_url
 
 echo "Token created at address: $token_id"
 

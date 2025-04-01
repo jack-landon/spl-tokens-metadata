@@ -1,0 +1,12 @@
+{
+  "name": "Radish",
+  "symbol": "RADI",
+  "description": "The Radish token.",
+  "image": "https://img.freepik.com/free-vector/cute-dinosaur-listening-music-with-headset-bring-backpack-cartoon-vector-icon-illustration-flat_138676-14296.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
