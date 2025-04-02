@@ -1,0 +1,12 @@
+{
+  "name": "Bitter Melon",
+  "symbol": "BMEL",
+  "description": "The Bitter Melon token.",
+  "image": "https://img.freepik.com/free-vector/cute-mouse-playing-skateboard-cartoon-vector-icon-illustration-animal-sport-icon-isolated-flat_138676-12600.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
