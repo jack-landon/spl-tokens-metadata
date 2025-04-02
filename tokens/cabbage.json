@@ -1,0 +1,12 @@
+{
+  "name": "Cabbage",
+  "symbol": "CABB",
+  "description": "The Cabbage token.",
+  "image": "https://img.freepik.com/free-vector/hand-drawn-cartoon-evil-rat-illustration_23-2150385798.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
