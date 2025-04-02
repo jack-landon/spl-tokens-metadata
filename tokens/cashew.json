@@ -1,0 +1,12 @@
+{
+  "name": "Cashew",
+  "symbol": "CASH",
+  "description": "The Cashew token.",
+  "image": "https://img.freepik.com/free-vector/cute-cat-doughnut-cartoon-illustration_138676-3015.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
