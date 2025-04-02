@@ -1,0 +1,12 @@
+{
+  "name": "Cherry",
+  "symbol": "CHER",
+  "description": "The Cherry token.",
+  "image": "https://img.freepik.com/free-vector/cute-koala-hanging-pencil-with-bag-cartoon-vector-icon-illustration-animal-education-isolated_138676-7644.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
