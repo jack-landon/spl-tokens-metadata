@@ -1,0 +1,12 @@
+{
+  "name": "Xigua",
+  "symbol": "XIGU",
+  "description": "The Xigua token.",
+  "image": "https://img.freepik.com/free-vector/8000-110_138676-7700.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
