@@ -1,0 +1,12 @@
+{
+  "name": "Lettuce",
+  "symbol": "LETT",
+  "description": "The Lettuce token.",
+  "image": "https://img.freepik.com/free-vector/muscular-kangaroo-cartoon-character_1308-116606.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
