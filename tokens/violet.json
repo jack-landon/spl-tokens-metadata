@@ -1,0 +1,12 @@
+{
+  "name": "Violet",
+  "symbol": "VIOL",
+  "description": "The Violet token.",
+  "image": "https://img.freepik.com/free-vector/cute-astronaut-cowboy-holding-gun-weapon-cartoon-vector-icon-illustration-science-holiday-isolated_138676-8981.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
