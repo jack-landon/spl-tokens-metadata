@@ -1,0 +1,12 @@
+{
+  "name": "Durian",
+  "symbol": "DURI",
+  "description": "The Durian token.",
+  "image": "https://img.freepik.com/free-vector/cute-shiba-inu-dog-super-hero-playing-laptop-cartoon-vector-icon-illustration-animal-technology_138676-6971.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
