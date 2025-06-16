@@ -1,0 +1,12 @@
+{
+  "name": "Raisin",
+  "symbol": "RAIS",
+  "description": "The Raisin token.",
+  "image": "https://img.freepik.com/free-vector/cute-elephant-sitting-waving-hand-cartoon-vector-icon-illustration_138676-2220.jpg",
+  "attributes": [
+    {
+      "trait_type": "Speed",
+      "value": "100"
+    }
+  ]
+}
